@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Campground from "./Campground";
 
 export default function CampgroundList() {
   const [campgrounds, setCampgrounds] = useState([]);
@@ -17,5 +18,11 @@ export default function CampgroundList() {
     fetchData();
   }, []);
 
-  return <div>CampgroundList</div>;
+  return (
+    <div>
+      {campgrounds.map((camp) => {
+        return <Campground key={camp._id} name={camp.name} />;
+      })}
+    </div>
+  );
 }

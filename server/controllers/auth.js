@@ -23,6 +23,7 @@ const registerUser = async (req, res) => {
     errorResponse(res, e);
   }
 };
+
 const loginUser = async (req, res) => {
   const { username, password } = req.body;
   const currUser = await User.findOne({ username });
