@@ -15,6 +15,12 @@ const createNewCampground = async (req, res) => {
   try {
     const { name } = req.body;
     const newCampground = await Campground.create({ name });
+    newCampground.images = req.files.map((img) => {
+      return {
+        url: img.path,
+        filename: img.filename.split("/")[1],
+      };
+    });
     res.json(newCampground);
   } catch (e) {
     console.log(e);

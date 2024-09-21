@@ -2,17 +2,17 @@ import React from "react";
 
 export default function Search() {
   return (
-    <div className="flex items-center justify-center px-3 py-2 rounded-full border-2 border-slate-200">
+    <div className="flex items-center justify-center px-3 py-2 rounded-full border-2 border-white text-white bg-black">
       <div className="mr-2">Where?</div>
       <div className="mr-2">Who?</div>
-      <div className="bg-red-500 p-2 rounded-full text-white">
+      <div className="bg-white p-2 rounded-full text-black">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="size-6"
+          className="size-4"
         >
           <path
             strokeLinecap="round"

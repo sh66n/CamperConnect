@@ -32,6 +32,7 @@ export default function SignupForm() {
       ) {
         toast.success("You've successfully logged in!", {
           position: "bottom-right",
+          theme: "dark",
         });
         navigate("/campgrounds");
       } else {

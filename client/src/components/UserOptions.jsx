@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import useIsAuthenticated from "react-auth-kit/hooks/useIsAuthenticated";
+import LogoutButton from "./LogoutButton";
 
 export default function UserOptions() {
   const isAuthenticated = useIsAuthenticated();
@@ -9,7 +10,7 @@ export default function UserOptions() {
   return (
     <div>
       <div
-        className="flex items-center justify-center bg-white rounded-full text-slate-700  hover:shadow-xl cursor-pointer border-2 border-slate-200 "
+        className="flex items-center justify-center bg-black rounded-full text-white  hover:shadow-xl cursor-pointer border-2 border-white"
         onClick={() => setShowUserOptions((currState) => !currState)}
       >
         <span className="p-2">
@@ -46,12 +47,12 @@ export default function UserOptions() {
         </span>
       </div>
       {showUserOptions && (
-        <div className="absolute mt-2 py-4 rounded-lg w-48 shadow-2xl right-9 cursor-pointer bg-white">
-          <div className="flex flex-col">
+        <div className="absolute mt-2 py-4 rounded-lg w-48 shadow-2xl right-9 cursor-pointer bg-black border border-gray-500">
+          <div className="flex flex-col text-white">
             {isAuthenticated ? (
               <>
                 <span className="mb-2 hover:text-gray-500 px-4">
-                  <Link to={"/login"}>Logout</Link>
+                  <LogoutButton>Logout</LogoutButton>
                 </span>
               </>
             ) : (
@@ -64,7 +65,7 @@ export default function UserOptions() {
                 </span>
               </>
             )}
-
+            <hr className="h-px my-2 bg-red border-0"></hr>
             <span className="hover:text-gray-500 px-4">Settings</span>
           </div>
         </div>

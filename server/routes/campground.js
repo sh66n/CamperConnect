@@ -1,4 +1,8 @@
 const router = require("express").Router();
+const { verifyToken } = require("../middlewares");
+const multer = require("multer");
+const { storage } = require("../cloudinary");
+const upload = multer({ storage });
 
 const {
   getAllCampgrounds,
@@ -8,11 +12,14 @@ const {
   deleteCampground,
 } = require("../controllers/campground");
 
-router.route("/").get(getAllCampgrounds).post(createNewCampground);
+router
+  .route("/")
+  .get(getAllCampgrounds)
+  .post(verifyToken, upload.array("img"), createNewCampground);
 router
   .route("/:id")
   .get(getCampgroundById)
-  .patch(updateCampground)
-  .delete(deleteCampground);
+  .patch(verifyToken, updateCampground)
+  .delete(verifyToken, deleteCampground);
 
 module.exports = router;
