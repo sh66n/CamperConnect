@@ -57,7 +57,7 @@ export default function UserOptions() {
               </>
             ) : (
               <>
-                <span className="mb-2 hover:text-gray-500 px-4">
+                <span className="mb-6 hover:text-gray-500 px-4">
                   <Link to={"/login"}>Login</Link>
                 </span>
                 <span className="mb-2 hover:text-gray-500 px-4">

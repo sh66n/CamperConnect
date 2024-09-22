@@ -15,12 +15,12 @@ export default function Campground({ camp }) {
   };
 
   return (
-    <div className="w-1/4 h-1/4 inline-block rounded-lg mx-2 cursor-pointer">
-      <Carousel className="w-full h-full mb-2 relative">
+    <div className="h-1/3 inline-block rounded-lg mx-2 cursor-pointer mb-4">
+      <Carousel className="aspect-square mb-2 relative">
         <CarouselContent className="">
           {camp.thumbnail.map((i) => {
             return (
-              <CarouselItem onClick={handleClick}>
+              <CarouselItem>
                 <img src={i.url} alt="image" className="rounded-lg bg-cover" />
               </CarouselItem>
             );
@@ -46,8 +46,13 @@ export default function Campground({ camp }) {
         <CarouselPrevious className="bg-red-500 border-0 hover:bg-red-600" />
         <CarouselNext className="bg-red-500 border-0 hover:bg-red-600" />
       </Carousel>
-      <div className="text-white px-2" onClick={handleClick}>
-        <div className="text-xl font-bold">{camp.location}</div>
+      <div className="text-white px-2">
+        <div
+          className="text-xl font-bold hover:underline"
+          onClick={handleClick}
+        >
+          {camp.location}
+        </div>
         <div className="text-gray-500">{camp.description}</div>
         <div>
           <span className="text-red-500 font-bold">₹{camp.price}</span>{" "}

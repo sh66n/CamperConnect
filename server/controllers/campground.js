@@ -26,6 +26,7 @@ const createNewCampground = async (req, res) => {
         filename: img.filename.split("/")[1],
       };
     });
+    newCampground.author = req.user.id;
     await newCampground.save();
     res.json(newCampground);
   } catch (e) {
