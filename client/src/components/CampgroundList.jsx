@@ -19,9 +19,9 @@ export default function CampgroundList() {
   }, []);
 
   return (
-    <div>
+    <div className="mr-24 ml-24 flex flex-wrap">
       {campgrounds.map((camp) => {
-        return <Campground key={camp._id} name={camp.name} />;
+        return <Campground key={camp._id} camp={camp} />;
       })}
     </div>
   );

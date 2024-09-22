@@ -5,7 +5,7 @@ export default function Search() {
     <div className="flex items-center justify-center px-3 py-2 rounded-full border-2 border-white text-white bg-black">
       <div className="mr-2">Where?</div>
       <div className="mr-2">Who?</div>
-      <div className="bg-white p-2 rounded-full text-black">
+      <div className="bg-red-500 p-2 rounded-full text-black">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

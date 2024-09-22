@@ -27,5 +27,19 @@ const campgroundSchema = new Schema({
     ref: "User",
   },
 });
+
+campgroundSchema.set("toObject", { virtuals: true });
+campgroundSchema.set("toJSON", { virtuals: true });
+
+campgroundSchema.virtual("thumbnail").get(function () {
+  return this.images.map((image) => {
+    const newImageUrl = image.url?.replace(
+      "/upload",
+      "/upload/c_fill,h_500,w_500"
+    );
+    image.url = newImageUrl;
+    return image;
+  });
+});
 const Campground = mongoose.model("Campground", campgroundSchema);
 module.exports = Campground;

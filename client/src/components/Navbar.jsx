@@ -10,7 +10,7 @@ export default function Navbar({ current }) {
       <div className="inline">
         <NavItem>
           <Link to={"/"} className="text-white font-bold text-3xl">
-            CamperConnect
+            Camper<span className="text-red-500">Connect</span>
           </Link>
         </NavItem>
       </div>

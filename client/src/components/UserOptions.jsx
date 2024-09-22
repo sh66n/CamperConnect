@@ -47,7 +47,7 @@ export default function UserOptions() {
         </span>
       </div>
       {showUserOptions && (
-        <div className="absolute mt-2 py-4 rounded-lg w-48 shadow-2xl right-9 cursor-pointer bg-black border border-gray-500">
+        <div className="absolute mt-2 py-4 rounded-lg w-48 shadow-2xl right-28 cursor-pointer bg-black border border-gray-500">
           <div className="flex flex-col text-white">
             {isAuthenticated ? (
               <>
