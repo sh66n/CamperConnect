@@ -65,17 +65,23 @@ export default function NewCampgroundForm() {
           placeholder={"Description"}
           type={"text"}
           register={register}
-          name={"name"}
+          name={"description"}
           required
         />
         {errors.description && <span>This field is required</span>}
-        <Input type={"file"} register={register} name={"name"} required />
+        <Input
+          type={"file"}
+          register={register}
+          name={"img"}
+          required
+          multiple
+        />
         {errors.img && <span>This field is required</span>}
         <Input
           placeholder={"Location"}
           type={"text"}
           register={register}
-          name={"name"}
+          name={"location"}
           required
         />
         {errors.location && <span>This field is required</span>}
@@ -83,7 +89,7 @@ export default function NewCampgroundForm() {
           placeholder={"Price"}
           type={"number"}
           register={register}
-          name={"name"}
+          name={"price"}
           required
         />
         {errors.price && <span>This field is required</span>}
