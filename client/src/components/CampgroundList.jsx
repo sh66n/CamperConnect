@@ -26,7 +26,7 @@ export default function CampgroundList() {
 
   return (
     <>
-      <div className="ml-12 mr-12 grid grid-cols-5">
+      <div className="ml-32 mr-32 grid grid-cols-4">
         {isLoading ? (
           <>
             <Skeleton className="w-96 h-96 bg-gray-900 mx-2" />
