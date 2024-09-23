@@ -7,14 +7,14 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useNavigate } from "react-router-dom";
-import Heart from "react-animated-heart";
+import Heart from "@react-sandbox/heart";
 
 export default function Campground({ camp }) {
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(`${camp._id}`);
   };
-  const [isClick, setClick] = useState(false);
+  const [active, setActive] = useState(false);
 
   return (
     <div className="h-1/3 inline-block rounded-lg mx-2 cursor-pointer mb-4">
@@ -28,8 +28,15 @@ export default function Campground({ camp }) {
             );
           })}
         </CarouselContent>
-        <div className="absolute right-0 top-0 flex justify-center items-center">
-          <Heart isClick={isClick} onClick={() => setClick(!isClick)} />
+        <div className="absolute h-16 w-16 right-0 top-0 flex justify-center items-center">
+          <Heart
+            width={30}
+            height={30}
+            strokeWidth={50}
+            inactiveColor="#ffffff"
+            active={active}
+            onClick={() => setActive(!active)}
+          />{" "}
         </div>
 
         <CarouselPrevious className="bg-red-500 border-0 hover:bg-red-600" />
