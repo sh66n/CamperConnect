@@ -19,7 +19,7 @@ export default function Navbar({ current }) {
           <Search />
         </NavItem>
       </div>
-      <div className="flex content-center inline ml-auto mr-24">
+      <div className="flex content-center ml-auto mr-24">
         <NavItem>
           <button className="p-2 bg-white text-black rounded-full font-bold">
             <Link to={"/campgrounds/new"}>Add campground</Link>

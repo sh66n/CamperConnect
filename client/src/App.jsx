@@ -9,6 +9,7 @@ import AuthProvider from "react-auth-kit";
 import { ToastContainer } from "react-toastify";
 import AuthOutlet from "@auth-kit/react-router/AuthOutlet";
 import NewCampground from "./views/NewCampground";
+import Campground from "./views/Campground";
 
 export default function App() {
   const store = createStore({
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/campgrounds" element={<Campgrounds />} />
+          <Route path="/campgrounds/:id" element={<Campground />} />
           <Route element={<AuthOutlet fallbackPath="/login" />}>
             <Route path="/campgrounds/new" element={<NewCampground />} />
           </Route>

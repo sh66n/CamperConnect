@@ -41,5 +41,6 @@ campgroundSchema.virtual("thumbnail").get(function () {
     return image;
   });
 });
+
 const Campground = mongoose.model("Campground", campgroundSchema);
 module.exports = Campground;
