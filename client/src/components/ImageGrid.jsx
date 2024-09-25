@@ -1,13 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function ImageGrid({ images }) {
-  if (images.length > 0) {
-    images[0] = images[0].replace("/upload", "/upload/c_fill,h_400,w_600");
-    for (let i = 1; i < 5; i++) {
-      images[i] = images[i].replace("/upload", "/upload/c_fill,h_200,w_300");
-    }
-  }
-
   return (
     <div className="flex w-full justify-center">
       <div className="flex w-5/6 justify-center content-center">

@@ -42,14 +42,24 @@ export default function Campground({ camp }) {
         <CarouselPrevious className="bg-red-500 border-0 hover:bg-red-600" />
         <CarouselNext className="bg-red-500 border-0 hover:bg-red-600" />
       </Carousel>
-      <div className="text-white px-2">
+      <div className="text-white px-2 mb-1">
         <div
           className="text-xl font-bold hover:underline"
           onClick={handleClick}
         >
           {camp.location}
         </div>
-        <div className="text-gray-500">{camp.description}</div>
+        <div
+          className="text-gray-500"
+          style={{
+            WebkitLineClamp: 1,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            display: "-webkit-box",
+          }}
+        >
+          {camp.description}
+        </div>
         <div>
           <span className="text-red-500 font-bold">₹{camp.price}</span>{" "}
           <span className="text-gray-300">night</span>

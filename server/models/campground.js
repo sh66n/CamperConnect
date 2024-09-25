@@ -42,5 +42,27 @@ campgroundSchema.virtual("thumbnail").get(function () {
   });
 });
 
+campgroundSchema.virtual("leader").get(function () {
+  return this.images.map((image) => {
+    const newImageUrl = image.url?.replace(
+      "/upload/c_fill,h_500,w_500",
+      "/upload/c_fill,h_400,w_600"
+    );
+    image.url = newImageUrl;
+    return image;
+  });
+});
+
+campgroundSchema.virtual("followers").get(function () {
+  return this.images.map((image) => {
+    const newImageUrl = image.url?.replace(
+      "/upload/c_fill,h_400,w_600",
+      "/upload/c_fill,h_200,w_300"
+    );
+    image.url = newImageUrl;
+    return image;
+  });
+});
+
 const Campground = mongoose.model("Campground", campgroundSchema);
 module.exports = Campground;

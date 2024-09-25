@@ -57,9 +57,11 @@ export default function UserOptions() {
               </>
             ) : (
               <>
-                <span className="mb-6 hover:text-gray-500 px-4">
+                <span className="mb-2 hover:text-gray-500 px-4">
                   <Link to={"/login"}>Login</Link>
                 </span>
+                <hr className="h-px my-2 bg-red border-0"></hr>
+
                 <span className="mb-2 hover:text-gray-500 px-4">
                   <Link to={"/signup"}>Signup</Link>
                 </span>

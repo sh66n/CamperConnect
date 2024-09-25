@@ -17,11 +17,12 @@ export default function Campground() {
         const { data } = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/campgrounds/${id}`
         );
-        setImages(
-          data.images.map((i) => {
-            return i.url;
-          })
-        );
+        const leaderImage = data.leader.slice(0, 1)[0];
+        const followerImages = data.followers.slice(0);
+        followerImages.splice(0, 1, leaderImage);
+        console.log(followerImages);
+        const allImages = followerImages.map((i) => i.url);
+        setImages(allImages);
         setCampground(data);
       } catch (e) {
         console.log(e);
@@ -33,6 +34,7 @@ export default function Campground() {
   return (
     <div className="min-h-screen h-auto w-100 bg-black">
       <Navbar />
+
       <div className="w-full flex justify-center mt-4 mb-4 pl-8 pr-8">
         <h1 className="w-5/6 text-white font-bold text-3xl">
           {campground.name}
