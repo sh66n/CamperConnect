@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Heart from "@react-sandbox/heart";
+import PriceCard from "@/components/PriceCard";
 
 export default function Campground() {
   const { id } = useParams();
@@ -20,7 +21,6 @@ export default function Campground() {
         const leaderImage = data.leader.slice(0, 1)[0];
         const followerImages = data.followers.slice(0);
         followerImages.splice(0, 1, leaderImage);
-        console.log(followerImages);
         const allImages = followerImages.map((i) => i.url);
         setImages(allImages);
         setCampground(data);
@@ -34,21 +34,31 @@ export default function Campground() {
   return (
     <div className="min-h-screen h-auto w-100 bg-black">
       <Navbar />
-
-      <div className="w-full flex justify-center mt-4 mb-4 pl-8 pr-8">
-        <h1 className="w-5/6 text-white font-bold text-3xl">
-          {campground.name}
-        </h1>
-        <Heart
-          width={30}
-          height={30}
-          strokeWidth={50}
-          inactiveColor="#ffffff"
-          active={active}
-          onClick={() => setActive(!active)}
-        />
+      <div className="w-full text-white">
+        <div className="flex mx-32 my-4">
+          <h1 className=" font-bold text-3xl">{campground.name}</h1>
+          <div
+            className="flex ml-auto items-center hover:cursor-pointer"
+            onClick={() => setActive(!active)}
+          >
+            <Heart
+              width={30}
+              height={30}
+              strokeWidth={50}
+              inactiveColor="#ffffff"
+              active={active}
+            />
+            <span className="underline">Save</span>
+          </div>
+        </div>
+        <ImageGrid images={images} />
+        <div className="flex mx-32">
+          <div className="p-4 w-7/12 my-4">{campground.description}</div>
+          <div className="p-4 flex w-5/12 justify-end">
+            <PriceCard pricePerNight={campground.price} />
+          </div>
+        </div>
       </div>
-      <ImageGrid images={images} />
     </div>
   );
 }
