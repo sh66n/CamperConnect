@@ -43,6 +43,7 @@ const loginUser = async (req, res) => {
       res.json({
         username: currUser.username,
         id: currUser._id,
+        wishlist: currUser.wishlist,
         accessToken,
       });
     } else {

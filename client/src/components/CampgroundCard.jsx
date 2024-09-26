@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -7,14 +7,42 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useNavigate } from "react-router-dom";
-import Heart from "@react-sandbox/heart";
+import { toast } from "react-toastify";
+import axios from "axios";
+import useAuthUser from "react-auth-kit/hooks/useAuthUser";
+import HeartIcon from "./HeartIcon";
 
 export default function Campground({ camp }) {
   const navigate = useNavigate();
+  const currUser = useAuthUser();
+
+  const [active, setActive] = useState(false);
+  const heartRef = useRef(null);
+
   const handleClick = () => {
     navigate(`${camp._id}`);
   };
-  const [active, setActive] = useState(false);
+
+  const handleHeart = async () => {
+    setActive(!active);
+    console.log(heartRef);
+    try {
+      const { data } = await axios.patch(
+        `${import.meta.env.VITE_BACKEND_URL}/users/${currUser.id}`,
+        {
+          campground: camp,
+        }
+      );
+      console.log(data);
+      toast.success("Added to your favourites!", {
+        position: "bottom-right",
+      });
+    } catch (e) {
+      toast.error("Failed adding to favourites", {
+        position: "bottom-right",
+      });
+    }
+  };
 
   return (
     <div className="h-1/3 inline-block rounded-lg mx-2 cursor-pointer mb-4">
@@ -28,15 +56,11 @@ export default function Campground({ camp }) {
             );
           })}
         </CarouselContent>
-        <div className="absolute h-16 w-16 right-0 top-0 flex justify-center items-center">
-          <Heart
-            width={30}
-            height={30}
-            strokeWidth={50}
-            inactiveColor="#ffffff"
-            active={active}
-            onClick={() => setActive(!active)}
-          />{" "}
+        <div
+          className="absolute h-16 w-16 right-0 top-0 flex justify-center items-center"
+          ref={heartRef}
+        >
+          <HeartIcon />
         </div>
 
         <CarouselPrevious className="bg-red-500 border-0 hover:bg-red-600" />

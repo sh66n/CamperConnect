@@ -5,6 +5,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import Heart from "@react-sandbox/heart";
 import PriceCard from "@/components/PriceCard";
+import HeartIcon from "@/components/HeartIcon";
 
 export default function Campground() {
   const { id } = useParams();
@@ -41,14 +42,7 @@ export default function Campground() {
             className="flex ml-auto items-center hover:cursor-pointer"
             onClick={() => setActive(!active)}
           >
-            <Heart
-              width={30}
-              height={30}
-              strokeWidth={50}
-              inactiveColor="#ffffff"
-              active={active}
-            />
-            <span className="underline">Save</span>
+            <HeartIcon text="Save" />
           </div>
         </div>
         <ImageGrid images={images} />

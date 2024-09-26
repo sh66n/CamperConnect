@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema } = require("mongoose");
+const { Campground } = require("./campground");
 
 const userSchema = new Schema({
   username: {
@@ -10,6 +11,12 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  wishlist: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Campground",
+    },
+  ],
 });
 
 const User = mongoose.model("User", userSchema);

@@ -15,12 +15,14 @@ const corsOptions = {
 
 const campgroundRoutes = require("./routes/campground");
 const authRoutes = require("./routes/auth");
+const userRoutes = require("./routes/user");
 
 app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/api", authRoutes);
 app.use("/api/campgrounds", campgroundRoutes);
+app.use("/api/users", userRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server listening at port ${PORT}`);

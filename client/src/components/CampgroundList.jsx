@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Campground from "./Campground";
+import CampgroundCard from "./CampgroundCard";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function CampgroundList() {
@@ -32,7 +32,7 @@ export default function CampgroundList() {
           </>
         ) : (
           campgrounds.map((camp) => {
-            return <Campground key={camp._id} camp={camp} />;
+            return <CampgroundCard key={camp._id} camp={camp} />;
           })
         )}
       </div>
