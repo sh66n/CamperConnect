@@ -47,28 +47,26 @@ export default function UserOptions() {
         </span>
       </div>
       {showUserOptions && (
-        <div className="absolute mt-2 py-4 rounded-lg w-48 shadow-2xl right-28 cursor-pointer bg-black border border-gray-500">
-          <div className="flex flex-col text-white">
+        <div className="absolute mt-2 p-2 rounded-lg w-48 shadow-2xl right-28 cursor-pointer bg-black border border-gray-500">
+          <div className="flex flex-col">
             {isAuthenticated ? (
               <>
-                <span className="mb-2 hover:text-gray-500 px-4">
+                <div className="p-2 hover:text-gray-500">
                   <LogoutButton>Logout</LogoutButton>
-                </span>
+                </div>
+                <div className="p-2 hover:text-gray-500">My Wishlist</div>
               </>
             ) : (
               <>
-                <span className="mb-2 hover:text-gray-500 px-4">
+                <div className="p-2 hover:text-gray-500">
                   <Link to={"/login"}>Login</Link>
-                </span>
-                <hr className="h-px my-2 bg-red border-0"></hr>
-
-                <span className="mb-2 hover:text-gray-500 px-4">
+                </div>
+                <div className="p-2 hover:text-gray-500">
                   <Link to={"/signup"}>Signup</Link>
-                </span>
+                </div>
               </>
             )}
-            <hr className="h-px my-2 bg-red border-0"></hr>
-            <span className="hover:text-gray-500 px-4">Settings</span>
+            <div className="p-2 hover:text-gray-500">Settings</div>
           </div>
         </div>
       )}
