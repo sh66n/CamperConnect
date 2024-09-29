@@ -9,7 +9,7 @@ import HeartIcon from "@/components/HeartIcon";
 
 export default function Campground() {
   const { id } = useParams();
-  const [campground, setCampground] = useState({});
+  const [campground, setCampground] = useState(null);
   const [images, setImages] = useState([]);
   const [active, setActive] = useState(false);
 
@@ -35,24 +35,26 @@ export default function Campground() {
   return (
     <div className="min-h-screen h-auto w-100 bg-black">
       <Navbar />
-      <div className="w-full text-white">
-        <div className="flex mx-32 my-4">
-          <h1 className=" font-bold text-3xl">{campground.name}</h1>
-          <div
-            className="flex ml-auto items-center hover:cursor-pointer"
-            onClick={() => setActive(!active)}
-          >
-            <HeartIcon text="Save" />
+      {campground && (
+        <div className="w-full text-white">
+          <div className="flex mx-32 my-4">
+            <h1 className=" font-bold text-3xl">{campground.name}</h1>
+            <div
+              className="flex ml-auto items-center hover:cursor-pointer"
+              onClick={() => setActive(!active)}
+            >
+              <HeartIcon textual={true} currCampground={campground} />
+            </div>
+          </div>
+          <ImageGrid images={images} />
+          <div className="flex mx-32">
+            <div className="p-4 w-7/12 my-4">{campground.description}</div>
+            <div className="p-4 flex w-5/12 justify-end">
+              <PriceCard pricePerNight={campground.price} />
+            </div>
           </div>
         </div>
-        <ImageGrid images={images} />
-        <div className="flex mx-32">
-          <div className="p-4 w-7/12 my-4">{campground.description}</div>
-          <div className="p-4 flex w-5/12 justify-end">
-            <PriceCard pricePerNight={campground.price} />
-          </div>
-        </div>
-      </div>
+      )}
     </div>
   );
 }
