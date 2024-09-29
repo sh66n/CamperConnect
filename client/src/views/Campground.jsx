@@ -7,6 +7,7 @@ import PriceCard from "@/components/PriceCard";
 import HeartIcon from "@/components/HeartIcon";
 import Wishlist from "@/components/Wishlist";
 import { useWishlist } from "@/components/WishlistContext";
+import HostedBy from "@/components/HostedBy";
 
 export default function Campground() {
   const { id } = useParams();
@@ -52,8 +53,12 @@ export default function Campground() {
           </div>
           <ImageGrid images={images} />
           <div className="flex mx-32">
-            <div className="p-4 w-7/12 my-4">{campground.description}</div>
-            <div className="p-4 flex w-5/12 justify-end">
+            <div className="p-4 w-7/12 my-4">
+              <div className="text-3xl py-4">{campground.location}</div>
+              <div>{campground.description}</div>
+              <HostedBy username={campground.author.username} />
+            </div>
+            <div className="py-4 pr-2 flex w-5/12 justify-end">
               <PriceCard pricePerNight={campground.price} />
             </div>
           </div>

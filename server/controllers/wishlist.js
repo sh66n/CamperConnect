@@ -4,7 +4,10 @@ const errorResponse = require("../utils/error");
 const getWishlist = async (req, res) => {
   try {
     const currUser = await User.findById(req.user.id);
-    if (currUser) res.json(currUser.wishlist);
+    if (currUser) {
+      const { wishlist } = await currUser.populate("wishlist");
+      res.json(wishlist);
+    }
   } catch (e) {
     errorResponse(res, e);
   }

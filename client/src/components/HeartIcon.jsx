@@ -24,8 +24,8 @@ export default function HeartIcon({ currCampground, textual }) {
             },
           }
         );
-        if (data.includes(currCampground._id)) {
-          setActive(true);
+        for (const campground of data) {
+          if (campground._id === currCampground._id) setActive(true);
         }
       }
     };

@@ -38,7 +38,9 @@ const createNewCampground = async (req, res) => {
 const getCampgroundById = async (req, res) => {
   try {
     const { id } = req.params;
-    const requestedCampground = await Campground.findById(id);
+    const requestedCampground = await Campground.findById(id).populate(
+      "author"
+    );
     res.json(requestedCampground);
   } catch (e) {
     console.log(e);

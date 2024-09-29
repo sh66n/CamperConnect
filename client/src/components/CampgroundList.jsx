@@ -27,7 +27,7 @@ export default function CampgroundList({ toggleWishList }) {
 
   return (
     <>
-      <div className="ml-24 mr-24 grid grid-cols-4">
+      <div className="ml-24 mr-24 grid grid-cols-5">
         {isLoading ? (
           <>
             <Skeleton className="w-96 h-96 bg-gray-900 mx-2" />

@@ -50,28 +50,29 @@ export default function UserOptions() {
         </span>
       </div>
       {showUserOptions && (
-        <div className="absolute mt-2 p-2 rounded-lg w-48 shadow-2xl right-28 cursor-pointer bg-black border border-gray-500">
+        <div className="absolute mt-2 px-2 py-3 rounded-lg w-48 shadow-2xl right-28 cursor-pointer bg-black border border-gray-500">
           <div className="flex flex-col">
             {isAuthenticated ? (
               <>
-                <div className="p-2 hover:text-gray-500">
-                  <LogoutButton>Logout</LogoutButton>
-                </div>
-                <div className="p-2 hover:text-gray-500" onClick={openWishlist}>
+                <div className="p-2 hover:opacity-50" onClick={openWishlist}>
                   My Wishlist
+                </div>
+                <div className="p-2 hover:opacity-50">Settings</div>
+
+                <div className="p-2 hover:opacity-50 text-red-500 font-bold rounded-md">
+                  <LogoutButton>Logout</LogoutButton>
                 </div>
               </>
             ) : (
               <>
-                <div className="p-2 hover:text-gray-500">
+                <div className="p-2 hover:opacity-50">
                   <Link to={"/login"}>Login</Link>
                 </div>
-                <div className="p-2 hover:text-gray-500">
+                <div className="p-2 hover:opacity-50 text-red-500 font-bold rounded-md">
                   <Link to={"/signup"}>Signup</Link>
                 </div>
               </>
             )}
-            <div className="p-2 hover:text-gray-500">Settings</div>
           </div>
         </div>
       )}
