@@ -5,7 +5,7 @@ const app = express();
 const cors = require("cors");
 
 const connectDb = require("./connection");
-connectDb("mongodb://127.0.0.1:27017/camperconnect");
+connectDb(process.env.MONGODB_CONNECTION_URL);
 
 const corsOptions = {
   origin: process.env.FRONTEND_URL,

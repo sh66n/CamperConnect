@@ -57,8 +57,14 @@ export default function Wishlist() {
 
   return (
     <div className="wishlist min-h-screen h-full w-full backdrop-blur-md	flex justify-center items-center text-white z-50 fixed">
-      <div className="h-12 aspect-square flex justify-center items-center absolute top-4 right-4 rounded-md hover:bg-gray-500">
-        <button onClick={closeWishlist}>
+      <div
+        ref={wishlistRef}
+        className="bg-black rounded-xl border border-gray-700 p-4 aspect-square h-5/6 flex flex-col text-center relative"
+      >
+        <button
+          className="h-12 aspect-square flex justify-center items-center absolute top-4 right-4 rounded-md hover:bg-gray-500"
+          onClick={closeWishlist}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -74,11 +80,6 @@ export default function Wishlist() {
             />
           </svg>
         </button>
-      </div>
-      <div
-        ref={wishlistRef}
-        className="bg-black rounded-xl border border-gray-700 p-4 aspect-square h-5/6 flex flex-col text-center"
-      >
         <div className="my-4 mb-11 text-3xl">
           My <span className="text-red-500"> Wishlist </span>
           <svg
@@ -96,11 +97,18 @@ export default function Wishlist() {
             />
           </svg>
         </div>
-        <div className="grow grid grid-cols-3 overflow-auto">
-          {wishlistedCamps.map((camp) => (
-            <CampgroundCard camp={camp} key={camp._id} />
-          ))}
-        </div>
+        {wishlistedCamps.length <= 0 ? (
+          <div className="w-full h-full flex flex-col justify-center items-center">
+            <div className="h-60 aspect-square bg-[url('https://res.cloudinary.com/dkhlgn6zs/image/upload/v1727630879/download__1_-removebg-preview_nri0mm.png')] bg-cover mb-2"></div>
+            <span>Your wishlist is empty.</span>
+          </div>
+        ) : (
+          <div className="grow grid grid-cols-3 overflow-auto">
+            {wishlistedCamps.map((camp) => (
+              <CampgroundCard camp={camp} key={camp._id} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

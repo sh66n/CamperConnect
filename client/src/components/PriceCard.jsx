@@ -14,7 +14,7 @@ export default function PriceCard({ pricePerNight }) {
   };
 
   return (
-    <div className="bg-black text-white rounded-xl p-4 w-5/6 border border-gray-500">
+    <div className="bg-black h-max my-4 text-white rounded-xl p-4 w-5/6 border border-gray-500">
       <div className="text-xl font-bold mb-2">₹{pricePerNight} night</div>
       <CheckInOut />
       <button

@@ -53,8 +53,8 @@ export default function Campground() {
           </div>
           <ImageGrid images={images} />
           <div className="flex mx-32">
-            <div className="p-4 w-7/12 my-4">
-              <div className="text-3xl py-4">{campground.location}</div>
+            <div className="p-4 w-7/12 my-4 ">
+              <div className="text-3xl pb-4">{campground.location}</div>
               <div>{campground.description}</div>
               <HostedBy username={campground.author.username} />
             </div>

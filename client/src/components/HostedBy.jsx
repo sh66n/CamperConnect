@@ -21,7 +21,9 @@ export default function HostedBy({ username }) {
             />
           </svg>
         </div>
-        <div className="grow">Hosted by {username}</div>
+        <div className="grow">
+          Hosted by <span className="text-red-500">{username}</span>
+        </div>
       </div>
       <hr className="opacity-50" />
     </div>
