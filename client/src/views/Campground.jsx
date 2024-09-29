@@ -3,15 +3,17 @@ import Navbar from "@/components/Navbar";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import Heart from "@react-sandbox/heart";
 import PriceCard from "@/components/PriceCard";
 import HeartIcon from "@/components/HeartIcon";
+import Wishlist from "@/components/Wishlist";
+import { useWishlist } from "@/components/WishlistContext";
 
 export default function Campground() {
   const { id } = useParams();
   const [campground, setCampground] = useState(null);
   const [images, setImages] = useState([]);
   const [active, setActive] = useState(false);
+  const { isWishlistOpen } = useWishlist();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,7 +35,9 @@ export default function Campground() {
   }, []);
 
   return (
-    <div className="min-h-screen h-auto w-100 bg-black">
+    <div className="min-h-screen h-auto w-full bg-black">
+      {isWishlistOpen && <Wishlist />}
+
       <Navbar />
       {campground && (
         <div className="w-full text-white">

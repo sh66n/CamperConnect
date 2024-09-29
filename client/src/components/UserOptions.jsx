@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import useIsAuthenticated from "react-auth-kit/hooks/useIsAuthenticated";
 import LogoutButton from "./LogoutButton";
+import { useWishlist } from "./WishlistContext";
 
 export default function UserOptions() {
   const isAuthenticated = useIsAuthenticated();
 
   const [showUserOptions, setShowUserOptions] = useState(false);
+  const { openWishlist } = useWishlist();
+
   return (
     <div>
       <div
@@ -54,7 +57,9 @@ export default function UserOptions() {
                 <div className="p-2 hover:text-gray-500">
                   <LogoutButton>Logout</LogoutButton>
                 </div>
-                <div className="p-2 hover:text-gray-500">My Wishlist</div>
+                <div className="p-2 hover:text-gray-500" onClick={openWishlist}>
+                  My Wishlist
+                </div>
               </>
             ) : (
               <>

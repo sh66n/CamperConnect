@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CampgroundCard from "./CampgroundCard";
 import { Skeleton } from "@/components/ui/skeleton";
+import Wishlist from "../components/Wishlist";
 
-export default function CampgroundList() {
+export default function CampgroundList({ toggleWishList }) {
   const [campgrounds, setCampgrounds] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);

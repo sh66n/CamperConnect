@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import NavItem from "./NavItem";
 import UserOptions from "./UserOptions";
 import Search from "./Search";
 
-export default function Navbar({ current }) {
+export default function Navbar() {
   return (
-    <div className="flex h-20 w-100 items-center sticky top-0 ml-24 z-50 backdrop-blur-sm">
-      <div className="inline">
+    <div className="flex h-20 w-full items-center sticky top-0 z-40 backdrop-blur-sm">
+      <div className="inline ml-24">
         <NavItem>
           <Link to={"/campgrounds"} className="text-white font-bold text-3xl">
             Camper<span className="text-red-500">Connect</span>
