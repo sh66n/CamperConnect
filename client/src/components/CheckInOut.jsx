@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Calendar } from "@/components/ui/calendar";
 
 export default function CheckInOut() {
   const [date, setDate] = useState(new Date());
