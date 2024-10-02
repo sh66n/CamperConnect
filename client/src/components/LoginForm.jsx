@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import useSignIn from "react-auth-kit/hooks/useSignIn";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Input from "../components/Input.jsx";
@@ -80,6 +80,12 @@ export default function SignupForm() {
         >
           Login
         </button>
+        <span className="text-center">
+          New here?{" "}
+          <span className="text-red-500">
+            <Link to={"/signup"}>Signup!</Link>
+          </span>
+        </span>
       </form>
     </div>
   );

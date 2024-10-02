@@ -5,6 +5,7 @@ import useSignIn from "react-auth-kit/hooks/useSignIn";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Input from "./Input";
+import { Link } from "react-router-dom";
 
 export default function SignupForm() {
   const {
@@ -67,6 +68,12 @@ export default function SignupForm() {
         >
           Signup
         </button>
+        <span className="text-center">
+          Already a user?{" "}
+          <span className="text-red-500">
+            <Link to={"/login"}>Login.</Link>
+          </span>
+        </span>
       </form>
       <div className="h-80 aspect-square ml-8 rounded-xl bg-[url('https://res.cloudinary.com/dkhlgn6zs/image/upload/v1727636349/1266e1f3-d1b8-42aa-8dc8-603ffd64f44f_rw_1920-removebg-preview_brubbf.png')] bg-cover"></div>
     </div>
